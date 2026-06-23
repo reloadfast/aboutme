@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guillermo Marshall</title>
+        <meta
+            name="description"
+            content="Senior Portfolio Manager & Operational Excellence — Because change is a constant."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --bg: #f7f6f3;
+                --bg-subtle: #efede8;
+                --text: #1a1a18;
+                --text-2: #6b6a65;
+                --text-3: #a09e99;
+                --accent: #c17a2e;
+                --border: rgba(26, 26, 24, 0.12);
+                --border-2: rgba(26, 26, 24, 0.22);
+                --serif: "Playfair Display", Georgia, serif;
+                --sans: "Inter", system-ui, sans-serif;
+                --radius: 8px;
+                --max: 720px;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #181816;
+                    --bg-subtle: #222220;
+                    --text: #f0eee9;
+                    --text-2: #9a9892;
+                    --text-3: #5c5a56;
+                    --accent: #d4924a;
+                    --border: rgba(240, 238, 233, 0.1);
+                    --border-2: rgba(240, 238, 233, 0.2);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    transition: none !important;
+                    animation: none !important;
+                }
+            }
+
+            html {
+                font-size: 16px;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--text);
+                font-family: var(--sans);
+                font-weight: 400;
+                line-height: 1.7;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            /* ── Layout ── */
+            .wrap {
+                max-width: var(--max);
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            /* ── Nav ── */
+            nav {
+                padding: 2rem 0 3rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+
+            .nav-name {
+                font-family: var(--serif);
+                font-size: 1rem;
+                font-weight: 400;
+                color: var(--text);
+                letter-spacing: 0.01em;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 1.75rem;
+                list-style: none;
+            }
+
+            .nav-links a {
+                font-size: 0.875rem;
+                color: var(--text-2);
+                transition: color 0.15s;
+            }
+
+            .nav-links a:hover {
+                color: var(--text);
+            }
+
+            /* ── Hero ── */
+            .hero {
+                padding: 1rem 0 4.5rem;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 2.5rem;
+                align-items: start;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.8125rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-3);
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-name {
+                font-family: var(--serif);
+                font-size: clamp(2.25rem, 5vw, 3rem);
+                font-weight: 400;
+                line-height: 1.15;
+                color: var(--text);
+                margin-bottom: 1.25rem;
+                display: inline-block;
+                position: relative;
+            }
+
+            .hero-name::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent);
+                transition: width 0.35s ease;
+            }
+
+            .hero-name:hover::after {
+                width: 100%;
+            }
+
+            .hero-tagline {
+                font-family: var(--serif);
+                font-size: 1.1875rem;
+                font-weight: 400;
+                color: var(--text-2);
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+                font-style: italic;
+            }
+
+            .hero-bio {
+                font-size: 0.9375rem;
+                color: var(--text-2);
+                line-height: 1.8;
+                max-width: 52ch;
+                margin-bottom: 2rem;
+            }
+
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: var(--text);
+                border: 1px solid var(--border-2);
+                border-radius: var(--radius);
+                padding: 9px 18px;
+                transition:
+                    border-color 0.15s,
+                    color 0.15s;
+            }
+
+            .cta:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+
+            .cta svg {
+                width: 15px;
+                height: 15px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .avatar {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                background: var(--bg-subtle);
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--serif);
+                font-size: 2rem;
+                color: var(--text-3);
+                flex-shrink: 0;
+                overflow: hidden;
+            }
+
+            .avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* ── Divider ── */
+            hr {
+                border: none;
+                border-top: 1px solid var(--border);
+                margin: 0;
+            }
+
+            /* ── Sections ── */
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .section-label {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-3);
+                margin-bottom: 1.5rem;
+            }
+
+            /* ── Work ── */
+            .role-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 0.375rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .role-title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--text);
+            }
+
+            .role-period {
+                font-size: 0.8125rem;
+                color: var(--text-3);
+            }
+
+            .role-org {
+                font-size: 0.875rem;
+                color: var(--text-2);
+                margin-bottom: 1rem;
+            }
+
+            .role-blurb {
+                font-size: 0.9375rem;
+                color: var(--text-2);
+                line-height: 1.8;
+                max-width: 56ch;
+                margin-bottom: 1.75rem;
+            }
+
+            .link-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.625rem;
+            }
+
+            .link-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.8125rem;
+                color: var(--text-2);
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                padding: 5px 13px;
+                transition:
+                    border-color 0.15s,
+                    color 0.15s;
+            }
+
+            .link-pill:hover {
+                border-color: var(--border-2);
+                color: var(--text);
+            }
+
+            .link-pill svg {
+                width: 14px;
+                height: 14px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            /* ── Projects ── */
+            .projects-intro {
+                font-size: 0.9375rem;
+                color: var(--text-2);
+                line-height: 1.8;
+                max-width: 52ch;
+                margin-bottom: 2rem;
+            }
+
+            .project-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+                gap: 1px;
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                overflow: hidden;
+                background: var(--border);
+            }
+
+            .project-card {
+                background: var(--bg);
+                padding: 1.25rem 1.375rem 1.5rem;
+                transition: background 0.15s;
+            }
+
+            .project-card:hover {
+                background: var(--bg-subtle);
+            }
+
+            .project-name {
+                font-size: 0.9375rem;
+                font-weight: 500;
+                color: var(--text);
+                margin-bottom: 0.375rem;
+            }
+
+            .project-desc {
+                font-size: 0.8125rem;
+                color: var(--text-2);
+                line-height: 1.65;
+                margin-bottom: 0.875rem;
+            }
+
+            .project-stack {
+                font-size: 0.75rem;
+                color: var(--text-3);
+                font-family: var(--sans);
+            }
+
+            .project-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 0.75rem;
+                color: var(--text-3);
+                margin-top: 0.75rem;
+                transition: color 0.15s;
+            }
+
+            .project-link:hover {
+                color: var(--accent);
+            }
+
+            .project-link svg {
+                width: 12px;
+                height: 12px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            /* ── Now ── */
+            .now-list {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 1.125rem;
+            }
+
+            .now-item {
+                display: grid;
+                grid-template-columns: 1.25rem 1fr;
+                gap: 0.875rem;
+                align-items: start;
+            }
+
+            .now-icon {
+                width: 1.25rem;
+                height: 1.25rem;
+                margin-top: 0.1875rem;
+                stroke: var(--text-3);
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                flex-shrink: 0;
+            }
+
+            .now-text {
+                font-size: 0.9375rem;
+                color: var(--text-2);
+                line-height: 1.75;
+            }
+
+            .now-text strong {
+                font-weight: 500;
+                color: var(--text);
+            }
+
+            /* ── Footer ── */
+            footer {
+                padding: 2.5rem 0 3rem;
+                border-top: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .footer-left p {
+                font-size: 0.8125rem;
+                color: var(--text-3);
+                line-height: 1.7;
+            }
+
+            .footer-right {
+                text-align: right;
+            }
+
+            .footer-email {
+                font-size: 0.875rem;
+                color: var(--text-2);
+                transition: color 0.15s;
+                display: block;
+                margin-bottom: 0.25rem;
+            }
+
+            .footer-email:hover {
+                color: var(--accent);
+            }
+
+            .footer-note {
+                font-size: 0.75rem;
+                color: var(--text-3);
+            }
+
+            /* ── Mobile ── */
+            @media (max-width: 580px) {
+                .hero {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .avatar {
+                    width: 72px;
+                    height: 72px;
+                    font-size: 1.5rem;
+                    order: -1;
+                }
+
+                nav {
+                    padding: 1.5rem 0 2.5rem;
+                }
+
+                .nav-links {
+                    gap: 1.25rem;
+                }
+
+                .project-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                footer {
+                    flex-direction: column;
+                }
+
+                .footer-right {
+                    text-align: left;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <nav>
+                <span class="nav-name">Guillermo Marshall</span>
+                <ul class="nav-links">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#now">Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- ── Hero ── -->
+            <section class="hero" aria-label="Introduction">
+                <div>
+                    <p class="hero-eyebrow">
+                        Senior Portfolio Manager · Operational Excellence
+                    </p>
+                    <h1 class="hero-name">Guillermo Marshall</h1>
+                    <p class="hero-tagline">
+                        I help organisations run better — and build things at
+                        home to understand why they don't.
+                    </p>
+                    <p class="hero-bio">
+                        I work at the intersection of people, process, and
+                        technology, leading complex portfolios and driving
+                        operational excellence across large organisations.
+                        Outside of work, I'm a chronic tinkerer — I run a
+                        self-hosted homelab where I build tools, break things,
+                        and learn more than any course ever taught me.
+                    </p>
+                    <a href="mailto:[your@email.com]" class="cta">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <polyline points="2,4 12,13 22,4" />
+                        </svg>
+                        Get in touch
+                    </a>
+                </div>
+                <!-- Replace the initial with your own, or swap the <span> for an <img> tag with your photo -->
+                <div class="avatar" aria-hidden="true">
+                    <span>W</span>
+                    <!-- <img src="photo.jpg" alt="William [Surname]" /> -->
+                </div>
+            </section>
+
+            <hr />
+
+            <!-- ── Work ── -->
+            <section id="work" aria-labelledby="work-heading">
+                <p class="section-label" id="work-heading">Work</p>
+                <div class="role-header">
+                    <span class="role-title">Senior Portfolio Manager</span>
+                    <span class="role-period">2020 – present</span>
+                </div>
+                <p class="role-org">[Current Organisation] · [Location]</p>
+                <p class="role-blurb">
+                    Leading cross-functional portfolios focused on operational
+                    excellence, process standardisation, and organisational
+                    change. I work best when the problem is ambiguous, the
+                    stakeholders are opinionated, and the deadline was
+                    yesterday.
+                </p>
+                <div class="link-row">
+                    <a
+                        href="https://github.com/reloadfast"
+                        class="link-pill"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                            />
+                        </svg>
+                        github.com/reloadfast
+                    </a>
+                    <a
+                        href="https://linkedin.com/in/[yourhandle]"
+                        class="link-pill"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                            />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        href="/cv.pdf"
+                        class="link-pill"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                            />
+                            <polyline points="14,2 14,8 20,8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10,9 9,9 8,9" />
+                        </svg>
+                        Download CV
+                    </a>
+                </div>
+            </section>
+
+            <hr />
+
+            <!-- ── Projects ── -->
+            <section id="projects" aria-labelledby="projects-heading">
+                <p class="section-label" id="projects-heading">
+                    Things I build
+                </p>
+                <p class="projects-intro">
+                    I name my projects after figures from world mythology. Each
+                    one solves a real problem I had — which is the only honest
+                    reason to build anything.
+                </p>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <p class="project-name">Argos</p>
+                        <p class="project-desc">
+                            A homelab dashboard with automatic Docker service
+                            discovery — no manual config, just a live view of
+                            everything running.
+                        </p>
+                        <p class="project-stack">Python · FastAPI · React</p>
+                        <a
+                            href="https://github.com/reloadfast/argos"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                                />
+                                <polyline points="15,3 21,3 21,9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <p class="project-name">Muninn</p>
+                        <p class="project-desc">
+                            AI-powered Docker log monitor that sends a morning
+                            digest via Telegram. Named for Odin's raven of
+                            memory.
+                        </p>
+                        <p class="project-stack">Python · Ollama · SQLite</p>
+                        <a
+                            href="https://github.com/reloadfast/muninn"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                                />
+                                <polyline points="15,3 21,3 21,9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <p class="project-name">GlucoAssist</p>
+                        <!-- Replace this description with what GlucoAssist actually does -->
+                        <p class="project-desc">
+                            [One sentence describing what GlucoAssist does and
+                            the problem it solves.]
+                        </p>
+                        <p class="project-stack">[Stack]</p>
+                        <a
+                            href="https://github.com/reloadfast/glucoassist"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                                />
+                                <polyline points="15,3 21,3 21,9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+
+            <!-- ── Now ── -->
+            <section id="now" aria-labelledby="now-heading">
+                <p class="section-label" id="now-heading">Currently</p>
+                <ul class="now-list">
+                    <li class="now-item">
+                        <svg
+                            class="now-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                            />
+                        </svg>
+                        <p class="now-text">
+                            <strong>Building Orpheus</strong> — a randomised
+                            piano repertoire explorer to replace a tool I made
+                            in 2023 and finally got tired of.
+                        </p>
+                    </li>
+                    <li class="now-item">
+                        <svg
+                            class="now-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path
+                                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                            />
+                        </svg>
+                        <!-- Replace with what you're actually reading -->
+                        <p class="now-text">
+                            <strong>Reading</strong> [Book title] by [Author] —
+                            [one sentence on why it's worth your time].
+                        </p>
+                    </li>
+                    <li class="now-item">
+                        <svg
+                            class="now-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            />
+                        </svg>
+                        <p class="now-text">
+                            <strong>Thinking about</strong> network security at
+                            home — running CrowdSec and ntopng to understand
+                            what's actually hitting my perimeter.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <hr />
+
+            <!-- ── Footer ── -->
+            <footer id="contact">
+                <div class="footer-left">
+                    <p>© 2026 William [Surname]</p>
+                    <p>Built by hand. Hosted on Cloudflare Pages.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="mailto:[your@email.com]" class="footer-email"
+                        >[your@email.com]</a
+                    >
+                    <p class="footer-note">
+                        No tracking. No ads. Just a person on the web.
+                    </p>
+                </div>
+            </footer>
+        </div>
+        <!-- /wrap -->
+    </body>
+</html>
